@@ -58,11 +58,13 @@ else
             $sender = "From: jil1710.jp@gmail.com";
             if(mail($email,$subject,$message,$sender))
             {
-                $query = "insert into member(society_id, username, name, email, phone, address, dob, profile_photo, identity_photo, identity_number, password, house_no, flat_type, is_owner, occupation, occupation_details, role, otp, status,approve) values('$sid', '$username', '$name', '$email', '$phone', '$address', '$bdate', 'none', 'none', 'none', '$pass', '$houseno', '$flat_type', '$is_owner', 'none', 'none', 'member', '$OTP', 'inactive','notapproved')";
+                $query = "insert into member(society_id, username, name, email, phone, address, dob, profile_photo, identity_photo, identity_number, password, house_no, flat_type, is_owner, occupation, occupation_details, role, otp, status,approve) values('$sid', '$username', '$name', '$email', '$phone', '$address', '$bdate', 'https://image.flaticon.com/icons/png/128/3177/3177440.png', 'none', 'none', '$pass', '$houseno', '$flat_type', '$is_owner', 'none', 'none', 'member', '$OTP', 'inactive','notapproved')";
 
                 $fire3 = mysqli_query($conn, $query);
                 if ($fire3) 
                 {
+                    $insert = "insert into notification(society_id,noti_from,notification) values('$sid','$name','please,approve my request to join the society')";
+                    $result = mysqli_query($conn,$insert);
                     session_start();
                     $_SESSION['email'] = $email;
                     $_SESSION['approve'] = "notapproved";

@@ -73,7 +73,7 @@ else {
                     $sender = "From: jil1710.jp@gmail.com";
 
                     if (mail($adminEmail, $subject, $message, $sender)) {
-                        $sql2 = "insert into member(society_id, username, name, email, phone, address, dob, profile_photo, identity_photo, identity_number, password, house_no, flat_type, is_owner, occupation, occupation_details, role, otp, status,approve) values('$societyID', '$adminUser', '$adminName', '$adminEmail', '$adminPhone', '$adminAddress', '$adminBirthDate', 'none', 'none', 'none', '$adminPass', '$adminHouseNo', '$adminFlatType', '$adminOwnerType', 'none', 'none', 'admin', '$OTP', 'inactive','notapproved')";
+                        $sql2 = "insert into member(society_id, username, name, email, phone, address, dob, profile_photo, identity_photo, identity_number, password, house_no, flat_type, is_owner, occupation, occupation_details, role, otp, status,approve) values('$societyID', '$adminUser', '$adminName', '$adminEmail', '$adminPhone', '$adminAddress', '$adminBirthDate', 'https://image.flaticon.com/icons/png/128/3135/3135715.png', 'none', 'none', '$adminPass', '$adminHouseNo', '$adminFlatType', '$adminOwnerType', 'none', 'none', 'admin', '$OTP', 'inactive','notapproved')";
 
                         $fire2 = mysqli_query($conn, $sql2);
                         if ($fire2) {

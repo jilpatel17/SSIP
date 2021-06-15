@@ -26,6 +26,9 @@
                         <p>Member</p>
                     </button></a></span>
             </div>
+            <div class="form-group text-center m-2">
+                <a class="text-primary" href="login.php">Already have an account?</a>
+            </div>
         </div>
     </div>
 </body>

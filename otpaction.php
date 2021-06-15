@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
 
         $to = $_SESSION['email'];
         $subject = "Society ID for Smart Society";
-        $message = "Dear admin, your SocietyID is <b>" . $_SESSION['society_id'] . "</b> Any member can do register themselves in Smart Society with reference to this SocietyID only. Please remember your SocietyID and give it to the members of your society at the time of their registration.";
+        $message = "Dear members, your SocietyID is <b>" . $_SESSION['society_id'] . "</b> Any member can do register themselves in Smart Society with reference to this SocietyID only. Please remember your SocietyID and give it to the members of your society at the time of their registration.";
         
         $sender = "MIME-Version: 1.0\r\n";
         $sender .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 
 
         if (mail($to, $subject, $message, $sender)) {
-            header("location: welcome.php");
+            header("location: login.php");
         } else {
             header("location: otp-page.php?msg=Failed to send the mail");
         }

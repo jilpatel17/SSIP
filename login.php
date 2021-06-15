@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <div class="input-group">
-                        <a class="text-primary" href="signup.php" data-bs-toggle="modal" data-bs-target="#forgotpassword">Forgot password?</a>
+                        <a class="text-primary" href="" data-bs-toggle="modal" data-bs-target="#forgotpassword">Forgot password?</a>
                     </div>
                 </div>
                 <div class="form-group">
@@ -72,7 +72,7 @@
 
                 <div class="form-group">
                     <div class="input-group d-flex justify-content-center">
-                        <a class="text-primary" href="signup.php">Already have an account?</a>
+                        <a class="text-primary" href="signup.php">Don't have an account?</a>
                     </div>
                 </div>
 
@@ -92,7 +92,7 @@
       <form id="form4">
       <div id="alertmsg" class="m-3"></div>
         <div class="modal-body"> 
-                <div class="form-group">
+                <div class="form-group" id="rm_email">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
@@ -102,7 +102,7 @@
                         <input type="email" id="femail" class="form-control" name="femail" placeholder="Email Id.">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="rm_pass">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
@@ -112,7 +112,7 @@
                         <input type="password" id="fpass" class="form-control" name="fpass" placeholder="Password">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="rm_cpass">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
@@ -123,7 +123,7 @@
                     </div>
                 </div>
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center" id="rm_update_btn">
             <div class="modal-footer">
                 <button id="forgotbtn" type="submit" class="btn btn-primary"><i class="fa fa-spinner fa-spin d-none forgot-spinner" aria-hidden="true"></i> Update</button>
             </div>

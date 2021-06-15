@@ -70,19 +70,71 @@ $(document).ready(function(){
                 data:$('#form4').serialize(),
                 beforeSend: function () {
                     $('.forgot-spinner').removeClass('d-none');
-                    $('#forgotbtn').attr('disabled', true);
+                    $('#forgotbtn').attr('disabled',true);
                 },
                 complete: function () {
                     $('.forgot-spinner').addClass('d-none');
-                    $('#forgotbtn').attr('disabled', false);
+                    $('#forgotbtn').attr('disabled',false);
                 },
                 success:function(response){
                     $('#femail').removeAttr('style');
                     $('#alertmsg').fadeIn();
                     $('#alertmsg').removeClass('alert alert-danger').addClass('alert alert-primary').html(response);
+                    if(response=="we send otp to registered email id to change password")
+                    {
+                        $('div#rm_email').remove();
+                        $('div#rm_pass').remove();
+                        $('div#rm_cpass').remove();
+                        $('div#rm_update_btn').remove();
+
+                        $('.modal-body').html(`<div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <span><img src="https://image.flaticon.com/icons/png/128/3064/3064211.png" height="20" width="20"></span>
+                                </span>
+                            </div>
+                            <input type="text" id="fotp" class="form-control" name="fotp" placeholder="Enter OTP" required>
+                        </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div class="modal-footer">
+                                <button id="verify" type="submit" class="btn btn-primary">Verify</button>
+                            </div>
+                        </div>`);
+                        
+                        
+                        
+                    }
+                    
                     
                 }
                });
+        }
+    });
+
+
+    $(document).on("click","#verify",function(e){
+        e.preventDefault();
+        var otp = $('#fotp').val();
+        if(otp=="")
+        {
+            $('#alertmsg').fadeIn();
+            $('#alertmsg').removeClass('alert alert-danger').addClass('alert alert-primary').html("Enter OTP.....!!");
+        }
+        else
+        {
+            $.ajax({
+                url:'change-password.php',
+                method:'POST',
+                data:{otp:otp},
+                success:function(data){
+                    $('#alertmsg').fadeIn();
+                    $('#alertmsg').removeClass('alert alert-danger').addClass('alert alert-primary').html(data);
+                    $('#form4').trigger('reset');
+                   
+                }
+            });
         }
     });
     

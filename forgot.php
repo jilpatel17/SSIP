@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "./database/dbconn.php";
 $email = $_POST['femail'];
 $pass = $_POST['fpass'];
@@ -11,18 +12,18 @@ if($count)
 {
     if($pass === $cpass)
     {
-        $subject = "Your Password was changed";
-        $message = "Hi, user your password for Smart Society was changed ! ";
+        $otp = rand(100000,999999);
+        $subject = "To change Password !";
+        $message = "Hi, your one time password(OTP) to change your password is ".$otp;
         $sender = "From: jil1710.jp@gmail.com";
         if(mail($email,$subject,$message,$sender))
         {
 
-            $sql2 = "update member set password='$pass' where email='$email'";
-            $run2 = mysqli_query($conn,$sql2);
-            if($run2)
-            {
-                echo "Updated Successfully";
-            }
+            $_SESSION['otp'] = $otp;
+            $_SESSION['otp-email'] = $email;
+            $_SESSION['update-pass'] = $pass;
+            echo "we send otp to registered email id to change password";
+            
         }
         else
         {
