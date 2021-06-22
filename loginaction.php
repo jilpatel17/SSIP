@@ -26,7 +26,7 @@ else
     }
     else
     {
-        $sql2 = "select * from member where username='$userEmail' and password='$pass' and role='member' and approve='approved'";
+        $sql2 = "select * from member where username='$userEmail' and password='$pass' and approve='approved' and (role='member' or role='committee member')";
         $run2 = mysqli_query($conn,$sql2);
         $count2 = mysqli_num_rows($run2);
         if($count2)
@@ -36,12 +36,12 @@ else
         }
         else
         {
-            $sql3 = "select * from member where email='$userEmail' and password='$pass' and role='member' and approve='approved'";
+            $sql3 = "select * from member where email='$userEmail' and password='$pass' and approve='approved' and (role='member' or role='committee member')";
             $run3 = mysqli_query($conn,$sql3);
             $count3 = mysqli_num_rows($run3);
             if($count3)
             {
-                $ro3 = mysqli_fetch_assoc($run3);
+                $row3 = mysqli_fetch_assoc($run3);
                 $_SESSION['username'] = $row3['username'];
                 echo 'Login as Member';
             }

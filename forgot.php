@@ -15,7 +15,7 @@ if($count)
         $otp = rand(100000,999999);
         $subject = "To change Password !";
         $message = "Hi, your one time password(OTP) to change your password is ".$otp;
-        $sender = "From: jil1710.jp@gmail.com";
+        $sender = "From: $from";
         if(mail($email,$subject,$message,$sender))
         {
 

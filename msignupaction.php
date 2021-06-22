@@ -55,7 +55,7 @@ else
             $OTP = rand(100000,999999);
             $subject = "Email verification for Smart Society";
             $message = "Hi, $username. To verify your email address on Smart Society as an member, your OTP(One Time Password) is " . $OTP;
-            $sender = "From: jil1710.jp@gmail.com";
+            $sender = "From: $from";
             if(mail($email,$subject,$message,$sender))
             {
                 $query = "insert into member(society_id, username, name, email, phone, address, dob, profile_photo, identity_photo, identity_number, password, house_no, flat_type, is_owner, occupation, occupation_details, role, otp, status,approve) values('$sid', '$username', '$name', '$email', '$phone', '$address', '$bdate', 'https://image.flaticon.com/icons/png/128/3177/3177440.png', 'none', 'none', '$pass', '$houseno', '$flat_type', '$is_owner', 'none', 'none', 'member', '$OTP', 'inactive','notapproved')";
