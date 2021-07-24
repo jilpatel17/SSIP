@@ -8,6 +8,7 @@ $(document).ready(function () {
         method:'POST',
         data:{sid:sid},
         success:function(data){
+            console.log(data);
             $('#mflat_type').html(data);
         }
     });

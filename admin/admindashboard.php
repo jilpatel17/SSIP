@@ -100,29 +100,53 @@
     </div>
   </div>
 
+  <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="background-color: transparent; border: none;">
+            <div id="jj" style="cursor: pointer;" class="text-end">
+                <h1 class="text-white display-5 btn btn-danger">&times;</h1>
+            </div>
+            <div class="text-center">
+                <img src="https://image.flaticon.com/icons/png/128/3034/3034068.png" alt="">
+                <img src="https://image.flaticon.com/icons/png/128/3034/3034068.png" alt="">
+                <img src="https://image.flaticon.com/icons/png/128/3034/3034068.png" alt="">
+              </div>
+              <div class="text-primary text-center m-2">
+                <h1 class="display-4" style="font-weight: bold;color: purple;">Happy Birthday</h1>
+              </div>
+              <div class="text-center m-3">
+                <h1 id="wish_name" class="display-3" style="font-weight:bold;color: yellow;"></h1>
+              </div>
+              <div class="text-center">
+                <img src="https://image.flaticon.com/icons/png/128/3034/3034068.png" alt="">
+                <img src="https://image.flaticon.com/icons/png/128/3034/3034068.png" alt="">
+                <img src="https://image.flaticon.com/icons/png/128/3034/3034068.png" alt="">
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <audio class="audioDemo" preload="none"> 
+        <source src="../video/birthday.mp3" type="audio/mpeg">
+        <source src="../video/birthday.mp3" type="audio/ogg">
+     </audio>
+
 
     <!-- script -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-    <script src="js/fetchnotification.js"></script>
+    <script src="js/common.js"></script>
   <script>
     $(document).ready(function() {
-      
+      $('#active').addClass('active');
       loadNotification();
       profile_photo();
-      $('#active').addClass('active');
-      $(document).on("click",".remove-notification",function(){
-                var id = $(this).attr('id');
-                $.ajax({
-                    url:'./actions/delete-notification.php',
-                    method:'POST',
-                    data:{id:id},
-                    success:function(data){
-                        console.log(data);
-                    }
-                });
-            });
+      wishBirthday();
+      
+    
+      
+      
     });
   </script>
     

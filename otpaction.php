@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
         
         $sender = "MIME-Version: 1.0\r\n";
         $sender .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-        $sender .= "From: jil1710.jp@gmail.com";
+        $sender .= "From: $from";
 
 
         if (mail($to, $subject, $message, $sender)) {

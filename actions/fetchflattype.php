@@ -12,7 +12,7 @@ if($run)
     $len = count($flat_type1);
     
     $output="";
-    for($i=0;$i<=$len-2;$i++)
+    for($i=0;$i<=$len-1;$i++)
     {
         $output.="<option value=$flat_type1[$i]>$flat_type1[$i]</option>";
     }
