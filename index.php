@@ -542,8 +542,8 @@
         <div class="content">
             <h3>Welcome to Smart Society</h3>
             <p>Easy to manage your society</p>
-            <a href="#" class="btn">SIGN UP</a>
-            <a href="#" class="btn">LOGIN</a>
+            <a href="signup.php" class="btn">SIGN UP</a>
+            <a href="login.php" class="btn">LOGIN</a>
         </div>
         <div class="video-container">
             <video src="video/apartment.mp4" id="video-slider" loop autoplay muted></video>
